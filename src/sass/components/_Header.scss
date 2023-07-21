@@ -1,0 +1,32 @@
+@use "../utils" as u;
+
+header {
+    background-color: u.$color-bg-secondary;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+
+    @include u.tablet-only {
+        width: 95%;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+
+    nav a{
+        margin: 0 0.8rem;
+    }
+
+    .header__profile-button {
+        padding: 1px;
+        background-color: white;
+        height: 27px;
+        border-radius: 50px;
+
+        img {
+            height: 100%;
+        }
+    }
+    
+}
