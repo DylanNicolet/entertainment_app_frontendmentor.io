@@ -1,0 +1,79 @@
+@use "../utils" as u;
+
+.home {
+    @include u.desktop-only {
+        width: 93%;
+    }
+
+    .trending {
+
+        .trending__title {
+            margin-left: 5%;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            font-size: 1.4rem;
+        }
+
+        .trending-card {
+            width: 100%;
+            margin-left: 5%;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+
+            &__image {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            &__gradient {
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0.14) 48%, rgba(252,252,252,0) 100%);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+            }
+
+            &__info {
+                position: absolute;
+                bottom: 1rem;
+                left: 0.5rem;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                z-index: 3;
+
+                @include u.tablet-only {
+                    left: 1rem;
+                    bottom: 1.5rem;
+                }
+
+                p {
+                    color: u.$color-text-secondary;
+                    font-size: 0.9rem;
+                    margin-right: 0.5rem;
+                    margin-left: 0.5rem;
+                }
+
+                .info-category {
+                    display: flex;
+                    align-items: center;
+                    
+                    img {
+                        height: 75%;
+                        margin-left: 0.5rem;
+                    }
+                }
+
+                .info-title {
+                    width: 100%;
+                    margin-left: 0.5rem;
+                    font-weight: 300;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+}

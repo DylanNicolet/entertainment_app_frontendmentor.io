@@ -12,3 +12,11 @@
 body {
     background-color: u.$color-bg-primary;
 }
+
+#app {
+    @include u.desktop-only {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+}

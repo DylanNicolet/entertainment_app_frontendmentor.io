@@ -14,9 +14,33 @@ header {
         border-radius: 10px;
     }
 
-    nav a{
-        margin: 0 0.8rem;
+    @include u.desktop-only {
+        flex-direction: column;
+        width: 5%;
+        height: 95vh;
+        justify-content: flex-start;
+        padding: 2rem 0;
+        margin: 2.5vh 2.5vh;
     }
+
+    nav {
+        @include u.desktop-only {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: auto;
+            margin-top: 3rem;
+        }
+
+        a {
+            margin: 0 0.8rem;
+
+            @include u.desktop-only {
+                margin: 0.8rem 0;
+            }
+        }
+    }
+
+
 
     .header__profile-button {
         padding: 1px;
