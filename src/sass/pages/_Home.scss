@@ -6,6 +6,7 @@
     }
 
     .trending {
+        margin-bottom: 1.5rem;
 
         .trending__title {
             margin-left: 5%;
@@ -52,7 +53,7 @@
 
                 p {
                     color: u.$color-text-secondary;
-                    font-size: 0.9rem;
+                    font-size: 0.7rem;
                     margin-right: 0.5rem;
                     margin-left: 0.5rem;
                 }
@@ -72,6 +73,71 @@
                     margin-left: 0.5rem;
                     font-weight: 300;
                     font-size: 1.1rem;
+                }
+            }
+        }
+    }
+
+    .recommended {
+        width: 90%;
+        margin: auto auto 70px auto;
+
+        &__title {
+            margin-bottom: 1rem;
+            font-weight: 300;
+            font-size: 1.4rem;
+        }
+
+        &__content {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-column-gap: 5%;
+            grid-row-gap: 20px;
+
+            .recommended-card {
+                &__image {
+                    width: 100%;
+                    border-radius: 10px;
+
+
+                    
+                }
+
+                &__info {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+
+                    @include u.tablet-only {
+                        left: 1rem;
+                        bottom: 1.5rem;
+                    }
+
+                    p {
+                        color: u.$color-text-secondary;
+                        font-size: 0.7rem;
+                        margin-right: 0.5rem;
+                        margin-left: 0.5rem;
+                    }
+
+                    .info-category {
+                        display: flex;
+                        align-items: center;
+                        
+                        img {
+                            height: 75%;
+                            margin-left: 0.5rem;
+                        }
+                    }
+
+                    .info-title {
+                        width: 100%;
+                        margin-left: 0.5rem;
+                        font-weight: 300;
+                        font-size: 1.1rem;
+                    }
                 }
             }
         }
