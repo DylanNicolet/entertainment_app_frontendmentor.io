@@ -1,17 +1,8 @@
 <template>
-    <div class="home">
+	<div class="home">
         <section class="search">
             <img class="search__icon" src="../assets/icon-search.svg" alt="search-icon">
             <input class="search__input" type="text" placeholder="Search for movies or TV series" v-model="searchInput">
-        </section>
-
-        <section class="trending" v-if="!isSearchActive">
-            <h1 class="trending__title">Trending</h1>
-            <swiper-container :slides-per-view="screenWidth === 'mobile' ? 1.7 : 2.7" loop="true">
-                <swiper-slide v-for="item in trendingData"  class="trending__slide">
-                    <TrendingItemCard :itemProp={item} />
-                </swiper-slide>
-            </swiper-container>
         </section>
 
         <section class="main-content" v-if="!isSearchActive">
@@ -36,16 +27,13 @@
 
 <script>
 import ItemCard from '@/components/ItemCard.vue';
-import TrendingItemCard from '@/components/TrendingItemCard.vue';
 import database from "../../data.json";
-import { register } from 'swiper/element/bundle';
 import { ref, onMounted, onUnmounted, watchEffect } from 'vue';
 
 export default {
-    name: 'Home',
+    name: 'Movies',
     components: {
-        ItemCard,
-        TrendingItemCard
+        ItemCard
     },
 
     setup() {
@@ -76,17 +64,7 @@ export default {
             window.removeEventListener( 'resize', handleScreenResize )
         } )
 
-        //register Swiper
-        register()
-
-        //Generate data for trending section
-        let trendingData = database.filter( item => {
-            if ( item.thumbnail.trending ) {
-                return true
-            }
-        } )
-
-        //Generate data for recommended section
+        //Generate Movies data
         let recommendedData = database.filter( item => {
             if ( !item.thumbnail.trending ) {
                 return true
@@ -131,7 +109,7 @@ export default {
             }
         } )
 
-        return{trendingData, recommendedData, screenWidth, searchInput, searchData, isSearchActive}
+        return{ recommendedData, screenWidth, searchInput, searchData, isSearchActive}
     }
 }
 </script>
